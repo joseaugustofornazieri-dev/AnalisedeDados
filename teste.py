@@ -159,9 +159,7 @@ st.metric("Sacas Retiradas",f"{filtro_Balanca:,.0f}")
 # CRIAÇÃO DA COLUNA DE HORA
 # ==========================================
 
-data["hora"] = data[
-    "DATA_MOVIMENTACAO"
-].dt.floor("h")
+
 
 
 # ==========================================
@@ -170,14 +168,6 @@ data["hora"] = data[
 
 st.subheader("Quantidade de Sacas por Hora")
 
-sacas_hora = (
-    data.groupby("hora")["SACAS"]
-    .sum()
-)
-
-st.bar_chart(
-    sacas_hora
-)
 
 
 # ==========================================
@@ -186,14 +176,7 @@ st.bar_chart(
 
 st.subheader("Quantidade de Operações por Hora")
 
-operacoes_hora = (
-    data.groupby("hora")
-    .size()
-)
 
-st.line_chart(
-    operacoes_hora
-)
 
 
 # ==========================================
